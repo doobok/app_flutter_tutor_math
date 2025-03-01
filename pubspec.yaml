@@ -95,6 +95,7 @@ flutter:
 
   assets:
     - assets/app_icon.png
+    - assets/splash.png
 
 flutter_icons:
   android: true

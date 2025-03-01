@@ -10,7 +10,7 @@ class AppTheme {
   static const Color darkBackgroundColor = CupertinoColors.darkBackgroundGray;
   static const Color lightCardColor = CupertinoColors.white;
   static const Color darkCardColor = CupertinoColors.systemGrey6;
-  static const Color iconColor = CupertinoColors.activeGreen;
+  static const Color iconColor = CupertinoColors.activeOrange;
 
   static const TextStyle lightTitleTextStyle = TextStyle(
     fontSize: 24,
