@@ -106,7 +106,6 @@ class _BalanceScreenState extends State<BalanceScreen> {
             margin: const EdgeInsets.all(16),
             padding: const EdgeInsets.all(16),
             decoration: BoxDecoration(
-              color: CupertinoColors.systemGrey6,
               borderRadius: BorderRadius.circular(12),
               boxShadow: [
                 BoxShadow(

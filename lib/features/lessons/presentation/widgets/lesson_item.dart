@@ -45,7 +45,6 @@ class _LessonItemState extends State<LessonItem> {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: CupertinoColors.systemGrey6,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -63,7 +62,6 @@ class _LessonItemState extends State<LessonItem> {
               const Icon(
                 CupertinoIcons.book,
                 size: 24,
-                color: CupertinoColors.systemBlue,
               ),
               const SizedBox(width: 16),
               Expanded(
@@ -82,7 +80,6 @@ class _LessonItemState extends State<LessonItem> {
                       widget.description,
                       style: TextStyle(
                         fontSize: 14,
-                        color: CupertinoColors.systemGrey,
                       ),
                     ),
                   ],
@@ -95,7 +92,6 @@ class _LessonItemState extends State<LessonItem> {
             'Преподаватель: ${widget.tutorName}',
             style: TextStyle(
               fontSize: 14,
-              color: CupertinoColors.systemGrey,
             ),
           ),
           const SizedBox(height: 4),
@@ -103,7 +99,6 @@ class _LessonItemState extends State<LessonItem> {
             'Дата и время: ${widget.dateTime}',
             style: TextStyle(
               fontSize: 14,
-              color: CupertinoColors.systemGrey,
             ),
           ),
           const SizedBox(height: 8),

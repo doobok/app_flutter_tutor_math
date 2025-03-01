@@ -18,7 +18,6 @@ class TransactionItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: CupertinoColors.systemGrey6,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -62,7 +61,6 @@ class TransactionItem extends StatelessWidget {
             '${date.day}.${date.month}.${date.year}',
             style: TextStyle(
               fontSize: 14,
-              color: CupertinoColors.systemGrey,
             ),
           ),
         ],

@@ -16,7 +16,6 @@ class ScheduleItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 16),
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: CupertinoColors.systemGrey6,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
@@ -30,8 +29,6 @@ class ScheduleItem extends StatelessWidget {
         children: [
           const Icon(
             CupertinoIcons.calendar,
-            size: 24,
-            color: CupertinoColors.systemBlue,
           ),
           const SizedBox(width: 16),
           Expanded(
@@ -50,7 +47,6 @@ class ScheduleItem extends StatelessWidget {
                   time,
                   style: TextStyle(
                     fontSize: 14,
-                    color: CupertinoColors.systemGrey,
                   ),
                 ),
               ],
