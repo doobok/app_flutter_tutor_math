@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
-import 'app/app.dart';
+import 'app/constants/app_constants.dart';
+import 'app/constants/app_theme.dart';
+import 'app/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -10,12 +12,14 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
-      title: 'My App',
-      theme: CupertinoThemeData(
-        primaryColor: CupertinoColors.systemBlue,
+    return CupertinoTheme(
+      data: AppTheme.getTheme(context),
+      child: CupertinoApp(
+        title: AppConstants.appName,
+        theme: AppTheme.getTheme(context),
+        initialRoute: '/main',
+        onGenerateRoute: RouteGenerator.generateRoute,
       ),
-      home: App(),
     );
   }
 }
