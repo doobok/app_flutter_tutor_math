@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:tutor_math/app/constants/app_constants.dart';
 import 'top_bar_menu.dart';
 import 'top_bar_user.dart';
 
@@ -18,7 +19,7 @@ class TopBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
         onPressed: () => showTopBarMenu(context),
       ),
       middle: const Text(
-        'Tutor-Math',
+        AppConstants.appName,
         style: TextStyle(
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
