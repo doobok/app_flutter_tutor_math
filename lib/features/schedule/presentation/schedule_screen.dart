@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'widgets/schedule_item.dart';
 
 class ScheduleScreen extends StatefulWidget {
   const ScheduleScreen({super.key});
@@ -8,7 +9,7 @@ class ScheduleScreen extends StatefulWidget {
 }
 
 class _ScheduleScreenState extends State<ScheduleScreen> {
-  List<String> scheduleItems = [];
+  List<Map<String, String>> scheduleItems = [];
   bool isLoading = true;
 
   @override
@@ -22,9 +23,9 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     await Future.delayed(const Duration(seconds: 2));
     setState(() {
       scheduleItems = [
-        'Математика - 10:00',
-        'Физика - 12:00',
-        'Химия - 14:00',
+        {'title': 'Математика', 'time': '10:00 - 11:30'},
+        {'title': 'Физика', 'time': '12:00 - 13:30'},
+        {'title': 'Химия', 'time': '14:00 - 15:30'},
       ];
       isLoading = false;
     });
@@ -39,9 +40,10 @@ class _ScheduleScreenState extends State<ScheduleScreen> {
     return ListView.builder(
       itemCount: scheduleItems.length,
       itemBuilder: (context, index) {
-        return Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(scheduleItems[index]),
+        final item = scheduleItems[index];
+        return ScheduleItem(
+          title: item['title']!,
+          time: item['time']!,
         );
       },
     );
