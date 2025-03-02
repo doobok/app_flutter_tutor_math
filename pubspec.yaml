@@ -37,6 +37,7 @@ dependencies:
 
   # Font Awesome icons
   font_awesome_flutter: ^10.8.0
+  provider: ^6.0.0
 
 dev_dependencies:
   flutter_test:
@@ -97,6 +98,7 @@ flutter:
     - assets/app_icon.png
     - assets/splash.png
     - assets/images/google_icon.png
+    - assets/images/user_avatar.png
 
 flutter_icons:
   android: true
