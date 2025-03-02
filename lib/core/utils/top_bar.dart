@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:provider/provider.dart';
-import '../../features/user/presentation/user_profile_screen.dart';
+import 'package:tutor_math/core/utils/top_bar_menu.dart';
 import '../providers/top_bar_provider.dart';
 
 class TopBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
-  const TopBar({super.key});
+  final VoidCallback onUserIconPressed;
+
+  const TopBar({super.key, required this.onUserIconPressed});
 
   @override
   Widget build(BuildContext context) {
@@ -18,11 +20,11 @@ class TopBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
           size: 28.0,
         ),
         onPressed: () {
-          // Действие при нажатии на иконку меню
+          showTopBarMenu(context);
         },
       ),
       middle: Text(
-        topBarProvider.title, // Заголовок из провайдера
+        topBarProvider.title,
         style: const TextStyle(
           fontSize: 20.0,
           fontWeight: FontWeight.bold,
@@ -34,14 +36,7 @@ class TopBar extends StatelessWidget implements ObstructingPreferredSizeWidget {
           CupertinoIcons.person_crop_circle,
           size: 28.0,
         ),
-        onPressed: () {
-          Navigator.push(
-            context,
-            CupertinoPageRoute(
-              builder: (context) => const UserProfileScreen(),
-            ),
-          );
-        },
+        onPressed: onUserIconPressed, // Используем переданный колбэк
       ),
     );
   }

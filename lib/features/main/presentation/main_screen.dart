@@ -17,6 +17,8 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> with AutomaticKeepAliveClientMixin {
+  final GlobalKey<NavigatorState> _navigatorKey = GlobalKey<NavigatorState>();
+
   @override
   bool get wantKeepAlive => true;
 
@@ -27,17 +29,38 @@ class _MainScreenState extends State<MainScreen> with AutomaticKeepAliveClientMi
     final topBarProvider = Provider.of<TopBarProvider>(context);
 
     return CupertinoPageScaffold(
-      navigationBar: TopBar(), // Верхнее меню (использует TopBarProvider)
+      navigationBar: TopBar(
+        onUserIconPressed: () {
+          // Переход на UserProfileScreen через вложенный Navigator
+          _navigatorKey.currentState?.push(
+            CupertinoPageRoute(
+              builder: (context) => const UserProfileScreen(),
+            ),
+          );
+        },
+      ),
       child: Column(
         children: [
           Expanded(
-            child: _buildScreen(bottomBarProvider.currentIndex), // Динамический экран
+            child: Navigator(
+              key: _navigatorKey,
+              onGenerateRoute: (settings) {
+                return CupertinoPageRoute(
+                  builder: (context) => _buildScreen(bottomBarProvider.currentIndex),
+                );
+              },
+            ),
           ),
           CupertinoTabBar(
             currentIndex: bottomBarProvider.currentIndex,
             onTap: (index) {
               bottomBarProvider.setCurrentIndex(index); // Изменяем индекс нижнего меню
               topBarProvider.updateTitle(_getAppBarTitle(index)); // Обновляем заголовок
+              _navigatorKey.currentState?.pushReplacement(
+                CupertinoPageRoute(
+                  builder: (context) => _buildScreen(index),
+                ),
+              );
             },
             items: const [
               BottomNavigationBarItem(
@@ -90,8 +113,6 @@ class _MainScreenState extends State<MainScreen> with AutomaticKeepAliveClientMi
         return const FavoritesScreen();
       case 3:
         return const BalanceScreen();
-      case 4:
-        return const UserProfileScreen();
       default:
         return const Center(child: Text('Экран не найден'));
     }
