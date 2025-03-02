@@ -31,9 +31,10 @@ class _MainScreenState extends State<MainScreen> with AutomaticKeepAliveClientMi
     return CupertinoPageScaffold(
       navigationBar: TopBar(
         onUserIconPressed: () {
-          // Переход на UserProfileScreen через вложенный Navigator
+          // Переход на UserProfileScreen с отключенной анимацией слайдера
           _navigatorKey.currentState?.push(
             CupertinoPageRoute(
+              fullscreenDialog: true, // Отключаем анимацию слайдера
               builder: (context) => const UserProfileScreen(),
             ),
           );
@@ -58,6 +59,7 @@ class _MainScreenState extends State<MainScreen> with AutomaticKeepAliveClientMi
               topBarProvider.updateTitle(_getAppBarTitle(index)); // Обновляем заголовок
               _navigatorKey.currentState?.pushReplacement(
                 CupertinoPageRoute(
+                  fullscreenDialog: true, // Отключаем анимацию слайдера
                   builder: (context) => _buildScreen(index),
                 ),
               );
