@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       child: CupertinoApp(
         title: AppConstants.appName,
         theme: AppTheme.getTheme(context),
-        initialRoute: '/main',
+        initialRoute: '/login',
         onGenerateRoute: RouteGenerator.generateRoute,
       ),
     );

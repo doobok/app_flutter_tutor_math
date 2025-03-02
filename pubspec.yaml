@@ -96,6 +96,7 @@ flutter:
   assets:
     - assets/app_icon.png
     - assets/splash.png
+    - assets/images/google_icon.png
 
 flutter_icons:
   android: true
@@ -103,7 +104,7 @@ flutter_icons:
   image_path: "assets/app_icon.png"
 
 flutter_native_splash:
-  color: "#42a5f5"
+  color: "#34d399"
   image: assets/splash.png
   android: true
   ios: true
